@@ -3,6 +3,7 @@ from keras.datasets import mnist
 import keras
 import random
 from sklearn.metrics import accuracy_score
+import numpy as np
 
 from ladder_net import get_ladder_network_fc
 
