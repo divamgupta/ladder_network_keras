@@ -4,16 +4,16 @@ This is an implementation of Ladder Network in Keras. Ladder network is a model 
 
 The model achives **98%** test accuracy on MNIST with just **100 labeled examples**. 
 
-The code has only works tensorflow backend.
+The code only works with Tensorflow backend.
 
 
 
 ## Requirements
 
-- Python 2
-- Tensorflow ( 1.4.0 )
+- Python 2.7+/3.6+
+- Tensorflow (1.4.0)
 - numpy
-- keras ( 2.1.4 ) 
+- keras (2.1.4) 
 
 Note that other versions of tensorflow/keras should also work.
 
@@ -86,6 +86,3 @@ y_test_pr = model.test_model.predict(x_test , batch_size=100 )
 
 print "test accuracy" , accuracy_score(y_test.argmax(-1) , y_test_pr.argmax(-1)  )
 ```
-
-
-
