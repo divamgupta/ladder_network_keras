@@ -1,8 +1,6 @@
-import keras
-from keras.models import *
-from keras.layers import *
-
 import tensorflow as tf
+from tensorflow.keras.models import *
+from tensorflow.keras.layers import *
 
 
 class AddBeta(Layer):
@@ -75,7 +73,7 @@ def batch_normalization(batch, mean=None, var=None):
 
 
 def add_noise( inputs , noise_std ):
-    return Lambda( lambda x: x + tf.random_normal(tf.shape(x)) * noise_std  )( inputs )
+    return Lambda( lambda x: x + tf.random.normal(tf.shape(x)) * noise_std  )( inputs )
 
 
 def get_ladder_network_fc(layer_sizes=[784, 1000, 500, 250, 250, 250, 10], 
@@ -134,10 +132,10 @@ def get_ladder_network_fc(layer_sizes=[784, 1000, 500, 250, 250, 250, 10],
 
     tr_m = Model([inputs_l, inputs_u], y_c_l)
     tr_m.add_loss(u_cost)
-    tr_m.compile(keras.optimizers.Adam(lr=0.02 ), 'categorical_crossentropy', metrics=['accuracy'])
+    tr_m.compile(tf.keras.optimizers.Adam(lr=0.02 ), 'categorical_crossentropy', metrics=['accuracy'])
 
     tr_m.metrics_names.append("den_loss")
-    tr_m.metrics_tensors.append(u_cost)
+    tr_m.metrics.append(u_cost)
 
     te_m = Model(inputs_l, y_l)
     tr_m.test_model = te_m
