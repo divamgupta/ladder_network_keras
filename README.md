@@ -41,7 +41,8 @@ y_test = keras.utils.to_categorical( y_test )
 # only select 100 training samples 
 idxs_annot = range( x_train.shape[0])
 random.seed(0)
-random.shuffle( idxs_annot )
+#random.shuffle( idxs_annot ) #TypeError: 'range' object does not support item assignment
+random.shuffle( list(idxs_annot) )
 idxs_annot = idxs_annot[ :100 ]
 
 x_train_unlabeled = x_train
