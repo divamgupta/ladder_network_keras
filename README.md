@@ -21,8 +21,7 @@ Create a virtual environment
 ```bash
 $ python3 -m venv --prompt ladder venv
 $ source venv/bin/activate
-(ladder) $ python -m pip install --upgrade pip
-(ladder) $ python -m pip install wheel
+(ladder) $ python -m pip install --upgrade pip setuptools wheel
 (ladder) $ python -m pip install -r requirements.txt
 ```
 
