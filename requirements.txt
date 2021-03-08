@@ -1,0 +1,2 @@
+tensorflow==2.4.1
+sklearn==0.0
